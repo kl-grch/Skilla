@@ -1,0 +1,13 @@
+.arrow-menu {
+  &--rotate {
+    transform: rotate(180deg);
+    path {
+      fill: var(--accent);
+    }
+  }
+  &:hover {
+    path {
+      fill: var(--hover);
+    }
+  }
+}

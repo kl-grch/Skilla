@@ -1,0 +1,188 @@
+.table-calls {
+  background: var(--white);
+  box-shadow: 0px 4px 5px #e9edf3;
+  border-radius: 8px;
+  padding-bottom: 57px;
+  margin-bottom: 546px;
+  &__thead {
+    .thead {
+      &__row-checkbox {
+        width: 40px;
+        padding: 0 12px;
+        border-bottom: none;
+        visibility: hidden;
+      }
+      &__row-type {
+        width: 56px;
+      }
+      &__row-time {
+        width: 86px;
+      }
+      &__row-employee {
+        width: 128px;
+      }
+      &__row-call {
+        width: 326px;
+      }
+      &__row-sourse {
+        width: 214px;
+      }
+      &__row-rate {
+        width: 192px;
+      }
+      &__row-duration {
+        width: 392px;
+        padding-right: 40px;
+        text-align: right;
+      }
+    }
+  }
+  &__tbody {
+    .tbody {
+      &__row {
+        border-bottom: 1px solid var(--main-bg);
+        &:hover {
+          cursor: pointer;
+          background-color: rgba(212, 223, 243, 0.17);
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          .tbody {
+            &__row-checkbox {
+              visibility: visible;
+            }
+            &__row-call {
+              position: relative;
+              img {
+                display: block;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                left: -22px;
+              }
+            }
+            &__row-duration {
+              .row-duration {
+                &__time {
+                  display: none;
+                }
+                &__player {
+                  display: block;
+                }
+              }
+            }
+          }
+        }
+      }
+      &__row-checkbox {
+        width: 40px;
+        padding: 0 12px;
+        border-bottom: none;
+        visibility: hidden;
+      }
+      &__row-type {
+        width: 56px;
+      }
+      &__row-time {
+        width: 86px;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 140%;
+        color: var(--text);
+      }
+      &__row-employee {
+        width: 128px;
+        .row-employee {
+          &__avatar {
+            border-radius: 20px;
+            width: 32px;
+            height: 32px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+          }
+        }
+      }
+      &__row-call {
+        width: 326px;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 140%;
+        color: var(--text);
+        position: relative;
+        img {
+          display: none;
+        }
+      }
+      &__row-sourse {
+        width: 214px;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 140%;
+        color: var(--text-secondary);
+      }
+      &__row-rate {
+        width: 192px;
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        .row-rate {
+          &__error {
+            color: var(--red);
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 140%;
+          }
+        }
+      }
+      &__row-duration {
+        width: 392px;
+        text-align: right;
+        padding-right: 40px;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 140%;
+        color: var(--text);
+        .row-duration {
+          &__player {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  table {
+    width: 100%;
+    max-width: 1440px;
+  }
+
+  th {
+    padding-top: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--main-bg);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
+    color: var(--text-header);
+    vertical-align: middle;
+    text-align: left;
+  }
+
+  td {
+    height: 100%;
+    min-height: 65px;
+    padding-top: min(9px);
+    padding-bottom: min(9px);
+    text-align: left;
+  }
+
+  input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+  }
+}

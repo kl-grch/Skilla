@@ -1,0 +1,44 @@
+.audio-player {
+  background-color: #eaf0fa;
+  border-radius: 48px;
+  width: 352px;
+  padding: 12px 16px 12px 19px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  &__range {
+    width: 164px;
+    height: 4px;
+    background-color: var(--icon);
+    border-radius: 50px;
+  }
+  &__play {
+    cursor: pointer;
+  }
+  &__download {
+    cursor: pointer;
+    &:hover {
+      svg path {
+        fill: var(--hover);
+      }
+    }
+    &:active {
+      svg path {
+        fill: var(--accent);
+      }
+    }
+  }
+  &__close {
+    cursor: pointer;
+    &:hover {
+      svg path {
+        fill: var(--hover);
+      }
+    }
+    &:active {
+      svg path {
+        fill: var(--accent);
+      }
+    }
+  }
+}

@@ -1,0 +1,138 @@
+@use "../../style/mixins.scss" as *;
+
+.filter-header-employee {
+  position: relative;
+  &:hover {
+    .filter-header-employee {
+      &__button {
+        .button {
+          &__icon {
+            transform: rotate(0.5turn);
+            svg path {
+              fill: var(--accent);
+            }
+          }
+        }
+      }
+      &__card-employee {
+        display: block;
+      }
+    }
+  }
+
+  &__button {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    &:hover {
+      cursor: pointer;
+      .button {
+        &__icon {
+          svg path {
+            fill: var(--accent);
+          }
+        }
+      }
+    }
+  }
+  &__card-employee {
+    position: absolute;
+    top: 100%;
+    z-index: 1;
+    right: 0;
+    display: none;
+    width: 368px;
+    background-color: var(--white);
+    border: 1px solid #eaf0fa;
+    box-shadow: 4px 16px 50px rgba(129, 135, 163, 0.24);
+    border-radius: 4px;
+    padding-top: 20px;
+    padding-bottom: 32px;
+    .card-employee {
+      &__employee-info {
+        border-bottom: 1px solid #eaf0fa;
+        margin-right: 32px;
+        margin-left: 32px;
+        position: relative;
+        .employee-info {
+          &__name {
+            font-style: normal;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 124%;
+            color: var(--text);
+            margin-bottom: 6px;
+          }
+          &__logout {
+            position: absolute;
+            top: 0;
+            right: 0;
+            cursor: pointer;
+          }
+
+          &__position {
+            font-style: normal;
+            font-weight: 400;
+            font-size: 15px;
+            line-height: 124%;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            .position {
+              &__dot {
+                width: 4px;
+                height: 4px;
+                border-radius: 100%;
+                background-color: var(--icon);
+                margin-right: 8px;
+                margin-left: 8px;
+              }
+            }
+          }
+          &__contacts {
+            .contacts {
+              &__phone {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                margin-bottom: 8px;
+                .phone {
+                  &__tel {
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 15px;
+                    line-height: 124%;
+                    color: var(--text-secondary);
+                  }
+                }
+              }
+              &__email {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                margin-bottom: 16px;
+                .email {
+                  &__adress {
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 15px;
+                    line-height: 124%;
+                    color: var(--text-secondary);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      &__employees {
+        .employees {
+          &__label {
+            @include label-positions;
+          }
+        }
+      }
+    }
+  }
+}

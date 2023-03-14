@@ -1,0 +1,76 @@
+@use "../../style/mixins.scss" as *;
+
+.sidebar {
+  background-color: var(--sidebar-bg);
+  width: 240px;
+  min-height: 100vh;
+  height: 100%;
+  &__logo {
+    padding: 20px 119px 32px 12px;
+  }
+  &__nav {
+    ul {
+      margin: 0;
+      padding: 0;
+      li {
+        list-style: none;
+        a {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+  &__buttons {
+    padding: 56px 20px 163px 20px;
+    display: grid;
+    row-gap: 32px;
+  }
+  .nav {
+    &__item {
+      height: 52px;
+      display: flex;
+      padding-left: 12px;
+      padding-right: 22px;
+    }
+  }
+
+  .item {
+    &__icon {
+      padding: 14px 0;
+      margin-right: 14px;
+    }
+    &__name {
+      padding-top: 15px;
+      padding-bottom: 17px;
+      width: 100%;
+      color: var(--sidebar-link);
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  .active {
+    .nav {
+      &__item {
+        position: relative;
+        background-color: var(--sidebar-link-hover-bg);
+        @include yellow-dot;
+        @include blue-border-left;
+      }
+    }
+    .item {
+      &__icon {
+        svg {
+          path {
+            fill-opacity: 1;
+          }
+        }
+      }
+      &__name {
+        color: var(--white);
+      }
+    }
+  }
+}

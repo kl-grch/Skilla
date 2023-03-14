@@ -1,0 +1,35 @@
+.employee {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 8px 29px 8px 31px;
+  position: relative;
+
+  &__img {
+    width: 32px;
+    height: 32px;
+  }
+  &__name {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 156%;
+    color: #005ff8;
+  }
+  &__login {
+    position: absolute;
+    right: 29px;
+    display: none;
+    cursor: pointer;
+  }
+  &:hover {
+    background-color: var(--accent-opacity);
+    .employee {
+      &__name {
+        color: var(--hover);
+      }
+      &__login {
+        display: block;
+      }
+    }
+  }
+}

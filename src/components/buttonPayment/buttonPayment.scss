@@ -1,0 +1,29 @@
+.payment {
+  padding: 0 20px 0 24px;
+  background-color: var(--accent);
+  border: none;
+  border-radius: 4px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &__label {
+    padding: 13px 0 15px 0;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 148%;
+    color: var(--white);
+    width: 100%;
+    margin-right: 17px;
+  }
+  &__icon {
+    padding: 14px 0;
+  }
+  &:hover {
+    background-color: var(--hover);
+  }
+  &:active {
+    background-color: var(--accent-active);
+  }
+}

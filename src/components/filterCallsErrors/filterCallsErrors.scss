@@ -1,0 +1,69 @@
+@use "../../style/mixins.scss" as *;
+
+.filter-calls-errors {
+  position: relative;
+  &:hover {
+    .filter-calls-errors {
+      &__button {
+        .button {
+          &__name {
+            color: var(--text);
+          }
+          &__icon {
+            transform: rotate(0.5turn);
+            svg path {
+              fill: var(--accent);
+            }
+          }
+        }
+      }
+      &__list {
+        display: block;
+      }
+    }
+  }
+  &__button {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    &:hover {
+      cursor: pointer;
+      .button {
+        &__name {
+          color: var(--accent);
+        }
+        &__icon {
+          svg path {
+            fill: var(--accent);
+          }
+        }
+      }
+    }
+    .button {
+      &__name {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 148%;
+        color: var(--text-secondary);
+        opacity: 0.87;
+      }
+    }
+  }
+  &__list {
+    position: absolute;
+    right: 0;
+    z-index: 1;
+    display: none;
+    @include list-basic;
+    width: 204px;
+    .list {
+      &__label {
+        @include list-label;
+      }
+      &__item {
+        @include list-item;
+      }
+    }
+  }
+}

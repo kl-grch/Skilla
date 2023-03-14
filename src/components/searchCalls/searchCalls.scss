@@ -1,0 +1,33 @@
+.search-calls {
+  width: 482px;
+  height: 48px;
+  padding: 14px 0;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  &__input {
+    background-color: initial;
+    border: none;
+    ::placeholder {
+      color: var(--text-secondary);
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 140%;
+    }
+    &:focus {
+        outline: none;
+    }
+  }
+  &:hover {
+    .search-calls {
+      &__icon {
+        svg {
+          path {
+            fill: var(--accent);
+          }
+        }
+      }
+    }
+  }
+}

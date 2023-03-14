@@ -1,0 +1,82 @@
+@use "../../style/mixins.scss" as *;
+
+.filter-calls-days {
+  position: relative;
+  &:hover {
+    .filter-calls-days {
+      &__button {
+        .button {
+          &__name {
+            color: var(--text);
+          }
+        }
+      }
+      &__list {
+        display: block;
+      }
+    }
+  }
+
+  &__button {
+    display: flex;
+    gap: 12px;
+    .button {
+      &__left-arrow {
+        cursor: pointer;
+        &:hover {
+          svg {
+            path {
+              fill: var(--accent);
+            }
+          }
+        }
+      }
+      &__right-arrow {
+        cursor: pointer;
+        &:hover {
+          svg {
+            path {
+              fill: var(--accent);
+            }
+          }
+        }
+      }
+      &__date {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16px;
+        color: var(--accent);
+        cursor: pointer;
+        &:hover {
+          .date {
+            &__icon {
+              path {
+                fill: var(--accent);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &__list {
+    @include list-basic;
+    position: absolute;
+    z-index: 1;
+    width: 204px;
+    right: 0;
+    display: none;
+    .list {
+      &__label {
+        @include list-label;
+      }
+      &__item {
+        @include list-item;
+      }
+    }
+  }
+}

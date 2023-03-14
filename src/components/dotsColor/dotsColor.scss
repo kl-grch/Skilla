@@ -1,0 +1,22 @@
+.dots {
+  display: flex;
+  gap: 2px;
+  &--green {
+    height: 8px;
+    width: 8px;
+    background-color: var(--green);
+    border-radius: 50%;
+  }
+  &--grey {
+    height: 8px;
+    width: 8px;
+    background-color: var(--icon);
+    border-radius: 50%;
+  }
+  &--red {
+    height: 8px;
+    width: 8px;
+    background-color: var(--red);
+    border-radius: 50%;
+  }
+}

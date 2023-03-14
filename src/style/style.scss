@@ -1,0 +1,72 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+@font-face {
+  font-family: "SF Pro Display";
+  src: url("../fonts/SFProDisplay-Regular.woff2") format("woff2"),
+    url("../fonts/SFProDisplay-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  src: url("../fonts/SFProDisplay-Semibold.woff2") format("woff2"),
+    url("../fonts/SFProDisplay-Semibold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  src: url("../fonts/SFProDisplay-Medium.woff2") format("woff2"),
+    url("../fonts/SFProDisplay-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --icon: #adbfdf;
+
+  --accent: #002cfb;
+  --accent-active: #274BC8;
+  --accent-opacity: rgba(0, 44, 251, 0.13);
+
+  --hover: #0024cb;
+
+  --green: #28a879;
+  --red: #ea1a4f;
+  --yellow: #ffd500;
+  --white: #ffffff;
+
+  --text: #122945;
+  --text-secondary: #5e7793;
+  --text-header: #899cb1;
+
+  --light-green: #dbf8ef;
+  --light-red: #fee9ef;
+
+  --main-bg: #e5e5e5;
+  --sidebar-bg: #091336;
+  --sidebar-link: rgba(255, 255, 255, 0.6);
+  --sidebar-link-hover-bg: rgba(216, 228, 251, 0.32);
+  --analitics-bg: rgba(212, 223, 243, 0.17);
+
+  --scale-bg: #dee6f5;
+  --secondary: #d8e4fb;
+}
+
+* {
+  font-family: "SF Pro Display", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 15px;
+}

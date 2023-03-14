@@ -1,0 +1,27 @@
+.calls {
+  &__title-info {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 48px;
+    padding: 20px 0;
+    .title-info {
+      &__count-days {
+        position: relative;
+
+        .count-days {
+          &__list {
+            position: absolute;
+            top: 42px;
+            right: 0;
+            z-index: 1;
+            display: none;
+            &--active {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+}

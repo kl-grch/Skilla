@@ -1,0 +1,173 @@
+.wrapper {
+  &__header {
+    background-color: var(--white);
+  }
+}
+.header {
+  height: 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  &__date {
+    white-space: nowrap;
+    color: var(--text-header);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
+  }
+  &__analitics {
+    display: flex;
+    gap: 56px;
+    padding: 14px 45px 16px 40px;
+    position: relative;
+    &:hover {
+      background-color: var(--analitics-bg);
+      .analitics {
+        &__question {
+          display: block;
+          cursor: pointer;
+        }
+      }
+    }
+    .analitics {
+      &__question {
+        position: absolute;
+        top: 10px;
+        right: 16px;
+        display: none;
+      }
+      &__calls {
+        .calls {
+          &__label {
+            white-space: nowrap;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 148%;
+            color: var(--text);
+            margin-bottom: 7px;
+            span {
+              color: var(--green);
+            }
+          }
+          &__scale {
+            appearance: none;
+            display: block;
+            height: 6px;
+            width: 156px;
+            border-radius: 12px;
+            background-color: var(--scale-bg);
+            &::-webkit-progress-bar {
+              background-color: var(--scale-bg);
+              border-radius: 12px;
+            }
+            &::-webkit-progress-value {
+              background-color: var(--green);
+              border-radius: 12px;
+            }
+          }
+        }
+      }
+      &__talks {
+        .talks {
+          &__label {
+            white-space: nowrap;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 148%;
+            color: var(--text);
+            margin-bottom: 7px;
+            span {
+              color: var(--yellow);
+            }
+          }
+          &__scale {
+            appearance: none;
+            display: block;
+            height: 6px;
+            width: 156px;
+            border-radius: 12px;
+            background-color: var(--scale-bg);
+            &::-webkit-progress-bar {
+              background-color: var(--scale-bg);
+              border-radius: 12px;
+            }
+            &::-webkit-progress-value {
+              background-color: var(--yellow);
+              border-radius: 12px;
+            }
+          }
+        }
+      }
+      &__orders {
+        .orders {
+          &__label {
+            white-space: nowrap;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 148%;
+            color: var(--text);
+            margin-bottom: 7px;
+            span {
+              color: var(--red);
+            }
+          }
+          &__scale {
+            appearance: none;
+            display: block;
+            height: 6px;
+            width: 156px;
+            border-radius: 12px;
+            background-color: var(--scale-bg);
+            &::-webkit-progress-bar {
+              background-color: var(--scale-bg);
+              border-radius: 12px;
+            }
+            &::-webkit-progress-value {
+              background-color: var(--red);
+              border-radius: 12px;
+            }
+          }
+        }
+      }
+    }
+  }
+  &__search {
+    padding: 0 8px;
+    cursor: pointer;
+  }
+  // &__employee {
+  //   display: flex;
+  //   gap: 4px;
+  //   align-items: center;
+  //   position: relative;
+  //   .employee {
+  //     &__button {
+  //       border: none;
+  //       outline: none;
+  //       background: none;
+  //     }
+  //     &__img {
+  //       height: 40px;
+  //       width: 40px;
+  //       img {
+  //         width: 100%;
+  //       }
+  //     }
+  //     &__card {
+  //       display: none;
+  //       position: absolute;
+  //       z-index: 1;
+  //       top: calc(100% + 12px);
+  //       right: 0;
+  //       &--active {
+  //         display: block;
+  //       }
+  //     }
+  //   }
+  // }
+}

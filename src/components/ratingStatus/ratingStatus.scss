@@ -1,0 +1,25 @@
+.rating-status {
+  display: inline-block;
+  height: 26px;
+  padding: 6px 8px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%;
+  border-radius: 4px;
+  &--bad {
+    border: 1px solid var(--red);
+    background-color: var(--light-red);
+    color: var(--red);
+  }
+  &--good {
+    border: 1px solid var(--icon);
+    background-color: var(--secondary);
+    color: var(--text);
+  }
+  &--great {
+    border: 1px solid var(--green);
+    background-color: var(--light-green);
+    color: var(--green);
+  }
+}
