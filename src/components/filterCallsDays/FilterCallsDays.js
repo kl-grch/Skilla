@@ -2,8 +2,8 @@ import "./filterCallsDays.scss";
 import { useEndNumber } from "../hooks/endNumber.hooks";
 import { useSelector, useDispatch } from "react-redux";
 import {
-  getDefaultCountDays,
-  getWeekCountDays,
+  defaultCountDays,
+  weekCountDays,
 } from "../../pages/pageCalls/pageCallsSlice";
 import { useEffect } from "react";
 import { getCallsDays } from "../filterCallsDays/filterCallsDaysSlice";
@@ -92,10 +92,9 @@ export default function FilterCallsDays() {
       </div>
 
       <div className="filter-calls-days__list">
-        {/* <div onClick={() => setCount(3)} className="list__label"> */}
         <div
           onClick={() => {
-            dispatch(getDefaultCountDays());
+            dispatch(defaultCountDays());
             dispatch(getCallsDays(3));
           }}
           className="list__label"
@@ -104,7 +103,7 @@ export default function FilterCallsDays() {
         </div>
         <div
           onClick={() => {
-            dispatch(getWeekCountDays());
+            dispatch(weekCountDays());
             dispatch(getCallsDays(7));
           }}
           className="list__item"

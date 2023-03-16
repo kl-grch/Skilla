@@ -1,14 +1,14 @@
 import "./filterCallsType.scss";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
-  getAllCalls,
-  getIncomingCalls,
-  getOutgoingCalls,
+  incomingCalls,
+  outgoingCalls,
 } from "../../pages/pageCalls/pageCallsSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { fetchAllCalls } from "../../pages/pageCalls/pageCallsSlice";
 
 export default function FilterCallsType() {
-  const { nowDate, defaultCountDays } = useSelector((state) => state.pageCalls);
+  const { toDate, fromDate } = useSelector((state) => state.calls);
   const dispatch = useDispatch();
 
   const [label, setLabel] = useState("Все типы");
@@ -25,30 +25,13 @@ export default function FilterCallsType() {
 
   const handleCall = (e) => {
     setLabel(e.target.innerText);
-    getFetchCalls();
+    dispatch(fetchAllCalls());
   };
 
-  const getFetchCalls = () => {
-    fetch(
-      `https://api.skilla.ru/mango/getList?date_start=${defaultCountDays}&date_end=${nowDate}`,
-      {
-        method: "POST",
-        headers: {
-          Authorization: "Bearer testtoken",
-          "Content-Type": "application/json",
-        },
-        body: null,
-      }
-    )
-      .then((res) => res.json())
-      .then((result) => {
-        dispatch(getAllCalls(result));
-      });
-  };
 
   const getFetchCallsIncoming = () => {
     fetch(
-      `https://api.skilla.ru/mango/getList?date_start=${defaultCountDays}&date_end=${nowDate}&in_out=1`,
+      `https://api.skilla.ru/mango/getList?date_start=${fromDate}&date_end=${toDate}&in_out=1`,
       {
         method: "POST",
         headers: {
@@ -60,13 +43,13 @@ export default function FilterCallsType() {
     )
       .then((res) => res.json())
       .then((result) => {
-        dispatch(getIncomingCalls(result));
+        dispatch(incomingCalls(result));
       });
   };
 
   const getFetchCallsOutgoing = () => {
     fetch(
-      `https://api.skilla.ru/mango/getList?date_start=${defaultCountDays}&date_end=${nowDate}&in_out=0`,
+      `https://api.skilla.ru/mango/getList?date_start=${fromDate}&date_end=${toDate}&in_out=0`,
       {
         method: "POST",
         headers: {
@@ -78,7 +61,7 @@ export default function FilterCallsType() {
     )
       .then((res) => res.json())
       .then((result) => {
-        dispatch(getOutgoingCalls(result));
+        dispatch(outgoingCalls(result));
       });
   };
 

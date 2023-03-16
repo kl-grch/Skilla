@@ -1,8 +1,7 @@
 import "./pageCalls.scss";
 
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllCalls } from "./pageCallsSlice";
 
 import ButtonBalance from "../../components/buttonBalance/ButtonBalance";
 import FilterCallsDays from "../../components/filterCallsDays/FilterCallsDays";
@@ -10,47 +9,22 @@ import FilterCalls from "../../components/filtersCalls/FilterCalls";
 import TableCalls from "../../components/tableCalls/TableCalls";
 import Loader from "../../components/loader/Loader";
 
-export default function PageCalls() {
-  const {nowDate, defaultCountDays} = useSelector(state => state.pageCalls);
-  const [error, setError] = useState(null);
-  const [isLoaded, setIsLoaded] = useState(false);
+import { fetchAllCalls } from "./pageCallsSlice";
 
-  const getCalls = () => {
-    fetch(
-      `https://api.skilla.ru/mango/getList?date_start=${defaultCountDays}&date_end=${nowDate}`,
-      {
-        method: "POST",
-        headers: {
-          Authorization: "Bearer testtoken",
-          "Content-Type": "application/json",
-        },
-        body: null,
-      }
-    )
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          setIsLoaded(true);
-          dispatch(getAllCalls(result));
-        },
-        (error) => {
-          setIsLoaded(true);
-          setError(error);
-        }
-      );
-  };
+export default function PageCalls() {
+  const { callsLoadingStatus, callsErrorStatus } = useSelector((state) => state.calls);
 
   useEffect(() => {
-    getCalls();
+    dispatch(fetchAllCalls());
   }, []);
 
   const dispatch = useDispatch();
 
   function Table() {
-    if (error) {
-      return <div>Error: {error.message}</div>;
-    } else if (!isLoaded) {
+    if (callsLoadingStatus === true) {
       return <Loader />;
+    } else if (callsErrorStatus === true) {
+      return <div>Error</div>;
     } else {
       return <TableCalls />;
     }

@@ -10,7 +10,7 @@ export default function Header() {
   const [newCallsCount, setNewCallsCount] = useState(0);
   const [allCallsCount, setAllCallsCount] = useState(0);
 
-  const { allCalls } = useSelector((store) => store.pageCalls);
+  const { allCalls } = useSelector((store) => store.calls);
   const updateLocale = require("dayjs/plugin/updateLocale");
   dayjs.extend(updateLocale);
   dayjs.updateLocale("ru", {
@@ -39,27 +39,18 @@ export default function Header() {
     ],
   });
 
-  const getNewCallsCount = () => {
-    setNewCallsCount(
-      allCalls.filter((item) => {
-        if (item.results.results.type === "is_new") {
-          return true;
-        } else {
-          return false;
-        }
-      }).length
+  const getNewCallsCount = async () => {
+    await setNewCallsCount(
+     ( allCalls.results || []).filter((item) => item.results[0]?.type === "is_new").length
     );
+  };
+
+  const getAllCallsCount = async () => {
+    await setAllCallsCount(allCalls.total_rows);
   };
 
   useEffect(() => {
     getNewCallsCount();
-  }, []);
-
-  const getAllCallsCount = () => {
-    setAllCallsCount(allCalls.total_rows);
-  };
-
-  useEffect(() => {
     getAllCallsCount();
   }, [allCalls]);
 
@@ -78,7 +69,7 @@ export default function Header() {
               <div className="calls__label">
                 Новые звонки{" "}
                 <span>
-                  {newCallsCount} из {allCallsCount} шт
+                  {newCallsCount || 0} из {allCallsCount || 0} шт
                 </span>
               </div>
               <progress

@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import tableCalls from "../components/tableCalls/tableCallsSlice";
-import pageCalls from "../pages/pageCalls/pageCallsSlice";
+import calls from "../pages/pageCalls/pageCallsSlice";
 import filterCallsDays from "../components/filterCallsDays/filterCallsDaysSlice";
 
 const stringMiddleware = () => (next) => (action) => {
@@ -13,7 +13,7 @@ const stringMiddleware = () => (next) => (action) => {
 };
 
 const store = configureStore({
-  reducer: { tableCalls, pageCalls, filterCallsDays },
+  reducer: { tableCalls, calls, filterCallsDays },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(stringMiddleware),
   devTools: process.env.NODE_ENV !== "production",

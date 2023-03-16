@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import ButtonRecognize from "../buttonRecognize/ButtonRecognize";
 
 export default function TableCalls() {
-  const { allCalls } = useSelector((store) => store.pageCalls);
+  const { allCalls } = useSelector((store) => store.calls);
 
   const updateTime = (time) => {
     if (time < 10) {
@@ -21,10 +21,7 @@ export default function TableCalls() {
   };
 
   const updatePhoneNumber = (phone) => {
-    return phone.replace(
-      /(?<pref>[0-9]{1})(?<code>[0-9]{3})(?<num1>[0-9]{3})(?<num2>[0-9]{2})(?<num3>[0-9]{2})/g,
-      "+$<pref> ($<code>) $<num1>-$<num2>-$<num3>"
-    );
+    return(`+${phone.slice(0,1)} (${phone.slice(1,4)}) ${phone.slice(4,7)}-${phone.slice(7,9)}-${phone.slice(9,11) || "**"}`)
   };
 
   const errorScript = (
@@ -59,7 +56,7 @@ export default function TableCalls() {
           </tr>
         </thead>
         <tbody className="table-calls__tbody">
-          {allCalls.results.map((item) => (
+          {allCalls.results?.map((item) => (
             <tr key={item.id} className="tbody__row">
               <td className="tbody__row-checkbox">
                 <input type="checkbox" />
@@ -87,7 +84,7 @@ export default function TableCalls() {
               </td>
               <td className="tbody__row-call">
                 <img src="/img/icons/phone.svg" alt="phone" />
-                {updatePhoneNumber(item.partner_data.phone)}
+                {item.in_out === 1 ? updatePhoneNumber(item.from_number): updatePhoneNumber(item.to_number)}
               </td>
               <td className="tbody__row-sourse">{item.source}</td>
               <td className="tbody__row-rate">{getError(item)}</td>
